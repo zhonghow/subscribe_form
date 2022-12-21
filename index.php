@@ -2,8 +2,8 @@
 
 session_start();
 
-require "includes/class-subscribe-form.php";
 require "includes/functions.php";
+require "includes/class-subscribe-form.php";
 
 if (class_exists('SubscribeForm'))
     $subscribeForm = new SubscribeForm();

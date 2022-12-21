@@ -18,7 +18,7 @@ class SubscribeForm
         $error = '';
 
         if (empty($email)) {
-            $error = 'Field is required';
+            $error = 'Email is required';
         }
 
         if (!empty($email)) {
