@@ -36,9 +36,14 @@ require "parts/header.php";
             <!-- Only change code below this line -->
 
             <!-- Instruction: Put error message or success message here -->
-            <?php if (!empty($error)) : ?>
+            <?php if (isset($error['status']) && $error['status'] == 'success') : ?>
                 <div class="alert alert-info">
-                    <?= $error ?>
+                    <?= $error['message'] ?>
+                </div>
+            <?php endif ?>
+            <?php if (isset($error['status']) && $error['status'] == 'error') : ?>
+                <div class="alert alert-danger">
+                    <?= $error['message'] ?>
                 </div>
             <?php endif ?>
             <!-- Only change code above this line -->

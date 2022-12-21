@@ -18,7 +18,10 @@ class SubscribeForm
         $error = '';
 
         if (empty($email)) {
-            $error = 'Email is required';
+            return [
+                "status" => "error",
+                "message" => "Email is required"
+            ];
         }
 
         if (!empty($email)) {
@@ -31,7 +34,10 @@ class SubscribeForm
             $user = $statement->fetch();
 
             if ($user) {
-                return 'You have already subscribed.';
+                return [
+                    "status" => "error",
+                    "message" => "You have already subscribed to our newsletter."
+                ];
             } else {
 
                 $statement = $this->database->prepare('INSERT INTO subscribed_email (email) VALUES (:email)');
@@ -39,7 +45,10 @@ class SubscribeForm
                     'email' => $email
                 ]);
 
-                $error = 'You have successfully subscribed to our newsletter.';
+                return [
+                    "status" => "success",
+                    "message" => "You have successfully subscribed to our newsletter."
+                ];
             }
         }
         return $error;
