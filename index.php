@@ -37,7 +37,7 @@ require "parts/header.php";
 
             <!-- Instruction: Put error message or success message here -->
             <?php if (!empty($error)) : ?>
-                <div class="alert alert-danger">
+                <div class="alert alert-info">
                     <?= $error ?>
                 </div>
             <?php endif ?>
